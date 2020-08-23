@@ -86,10 +86,10 @@ class SimpleDiceRoller {
             var formula = "{";
 
             for(var i = 0; i < diceRoll; ++i){
-                formula += "1d" + diceType + "x=";
-                if(i < diceRoll - 1)
-                    formula += ", "
+                formula += "1d" + diceType + "x= + ";
             }
+
+            formula += "1d6x=";
 
             console.log("used " + formula + "}dl");
 
