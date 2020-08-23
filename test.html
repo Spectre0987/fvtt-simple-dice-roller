@@ -1,0 +1,22 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<p id="main">Mew</p>
+		<script>
+			var content = document.getElementById("main");
+			content.innerHTML = "";
+
+			var size = 3;
+			var type = 8;
+
+			for(var i = 0; i < size; ++i){
+				content.innerHTML += "Roll " + i + ": <p>" + ("{1d" + type + "x=, 1d6x=}kh") + "</p>"
+			}
+
+			if(type == 9 || size == 3)
+				console.log("Beep")
+
+		</script>
+	</body>
+</html>

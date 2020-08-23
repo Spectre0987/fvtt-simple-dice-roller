@@ -16,7 +16,8 @@ class SimpleDiceRoller {
                             <li data-dice-type="4" data-dice-roll="2">2</li>
                             <li data-dice-type="4" data-dice-roll="3">3</li>
                             <li data-dice-type="4" data-dice-roll="1" data-wild="true">1w</li>
-                            <li data-dice-type="4" data-dice-roll="5" data-wild="true" class="sdr-lastcol">2w</li>
+                            <li data-dice-type="4" data-dice-roll="2" data-wild="true">2w</li>
+                            <li data-dice-type="4" data-dice-roll="3" data-wild="true" class="sdr-lastcol">3w</li>
                         </ul>
                         <ul>
                             <li data-dice-type="6" data-dice-roll="1" class="sdr-col1"><i class="df-d6-6" data-dice-type="6" data-dice-roll="1"></i> d6</li>
@@ -80,17 +81,21 @@ class SimpleDiceRoller {
         var diceRoll = event.target.dataset.diceRoll;
         var wild = event.target.dataset.wild;
 
-        var formula = diceRoll + "d" + diceType;
-
         if(wild === "true"){
-            formula = "{" + formula + "x=, 1d6x=}dl"
+            
+            let d = new Die(diceType);
+            d.roll(diceRoll);
+
         }
+        else{
+            var formula = diceRoll + "d" + diceType;
 
-        let r = new Roll(formula);
+            let r = new Roll(formula);
 
-        r.toMessage({
-            user: game.user._id,
-        })
+            r.toMessage({
+                user: game.user._id,
+            })
+        }
 
         this._close(event, html);
 
