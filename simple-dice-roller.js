@@ -83,8 +83,24 @@ class SimpleDiceRoller {
 
         if(wild === "true"){
             
-            let d = new Die(diceType);
-            d.roll(diceRoll);
+            var formula = "{";
+
+            for(var i = 0; i < diceRoll; ++i){
+                formula += "1d" + diceType + "x=";
+                if(i < diceRoll - 1)
+                    formula += ", "
+            }
+
+            console.log("used " + formula + "}dl");
+
+            let r = new Roll(formula + "}dl");
+
+            r.toMessage({
+              type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+              content: r.results,
+              user: game.user._id,
+              sound: CONFIG.sounds.dice,
+            });
 
         }
         else{
