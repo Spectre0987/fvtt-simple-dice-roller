@@ -83,7 +83,7 @@ class SimpleDiceRoller {
         var formula = diceRoll + "d" + diceType;
 
         if(wild === "true"){
-            formula = "{" + formula + "x=, 1d6x=}kh"
+            formula = "{" + formula + "x=, 1d6x=}dl"
         }
 
         let r = new Roll(formula);
