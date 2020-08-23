@@ -2,9 +2,11 @@ class SimpleDiceRoller {
 
     static async Init(controls, html) {
 
+        console.log("Init called!");
+
         const diceRollbtn = $(
             `
-            <li class="scene-control sdr-scene-control" data-control="simple-dice-roller" title="Simple Dice Roller">
+            <li class="scene-control sdr-scene-control" data-control="simple-dice-roller" title="SWADE Dice Roller">
                 <i class="fas fa-dice-d20"></i>
             
                 <ol class="control-tools">
@@ -13,50 +15,50 @@ class SimpleDiceRoller {
                             <li data-dice-type="4" data-dice-roll="1" class="sdr-col1"><i class="df-d4-4" data-dice-type="4" data-dice-roll="1"></i> d4</li>
                             <li data-dice-type="4" data-dice-roll="2">2</li>
                             <li data-dice-type="4" data-dice-roll="3">3</li>
-                            <li data-dice-type="4" data-dice-roll="4">4</li>
-                            <li data-dice-type="4" data-dice-roll="5" class="sdr-lastcol">5</li>
+                            <li data-dice-type="4" data-dice-roll="1" data-wild="true">1w</li>
+                            <li data-dice-type="4" data-dice-roll="5" data-wild="true" class="sdr-lastcol">2w</li>
                         </ul>
                         <ul>
                             <li data-dice-type="6" data-dice-roll="1" class="sdr-col1"><i class="df-d6-6" data-dice-type="6" data-dice-roll="1"></i> d6</li>
                             <li data-dice-type="6" data-dice-roll="2">2</li>
                             <li data-dice-type="6" data-dice-roll="3">3</li>
-                            <li data-dice-type="6" data-dice-roll="4">4</li>
-                            <li data-dice-type="6" data-dice-roll="5" class="sdr-lastcol">5</li>
+                            <li data-dice-type="6" data-dice-roll="1" data-wild="true">1w</li>
+                            <li data-dice-type="6" data-dice-roll="2" class="sdr-lastcol" data-wild="true">2w</li>
                         </ul>
                         <ul>
                             <li data-dice-type="8" data-dice-roll="1" class="sdr-col1"><i class="df-d8-8" data-dice-type="8" data-dice-roll="1"></i> d8</li>
                             <li data-dice-type="8" data-dice-roll="2">2</li>
                             <li data-dice-type="8" data-dice-roll="3">3</li>
-                            <li data-dice-type="8" data-dice-roll="4">4</li>
-                            <li data-dice-type="8" data-dice-roll="5" class="sdr-lastcol">5</li>
+                            <li data-dice-type="8" data-dice-roll="1" data-wild="true">1w</li>
+                            <li data-dice-type="8" data-dice-roll="2" class="sdr-lastcol" data-wild="true">2w</li>
                         </ul>
                         <ul>
                             <li data-dice-type="10" data-dice-roll="1" class="sdr-col1"><i class="df-d10-10" data-dice-type="10" data-dice-roll="1"></i> d10</li>
                             <li data-dice-type="10" data-dice-roll="2">2</li>
                             <li data-dice-type="10" data-dice-roll="3">3</li>
-                            <li data-dice-type="10" data-dice-roll="4">4</li>
-                            <li data-dice-type="10" data-dice-roll="5" class="sdr-lastcol">5</li>
+                            <li data-dice-type="10" data-dice-roll="1" data-wild="true">1w</li>
+                            <li data-dice-type="10" data-dice-roll="2" class="sdr-lastcol" data-wild="true">2w</li>
                         </ul>
                         <ul>
                             <li data-dice-type="12" data-dice-roll="1" class="sdr-col1"><i class="df-d12-12" data-dice-type="12" data-dice-roll="1"></i> d12</li>
                             <li data-dice-type="12" data-dice-roll="2">2</li>
                             <li data-dice-type="12" data-dice-roll="3">3</li>
-                            <li data-dice-type="12" data-dice-roll="4">4</li>
-                            <li data-dice-type="12" data-dice-roll="5" class="sdr-lastcol">5</li>
+                            <li data-dice-type="12" data-dice-roll="1" data-wild="true">1w</li>
+                            <li data-dice-type="12" data-dice-roll="2" class="sdr-lastcol" data-wild="true">2w</li>
                         </ul>
                         <ul>
                             <li data-dice-type="20" data-dice-roll="1" class="sdr-col1"><i class="df-d20-20" data-dice-type="20" data-dice-roll="1"></i> d20</li>
                             <li data-dice-type="20" data-dice-roll="2">2</li>
                             <li data-dice-type="20" data-dice-roll="3">3</li>
-                            <li data-dice-type="20" data-dice-roll="4">4</li>
-                            <li data-dice-type="20" data-dice-roll="5" class="sdr-lastcol">5</li>
+                            <li data-dice-type="20" data-dice-roll="1" data-wild="true">1w</li>
+                            <li data-dice-type="20" data-dice-roll="2" class="sdr-lastcol" data-wild="true">2w</li>
                         </ul>
                         <ul class="sdr-lastrow">
                             <li data-dice-type="100" data-dice-roll="1" class="sdr-col1"><i class="df-d10-10" data-dice-type="100" data-dice-roll="1"></i><i class="df-d10-10" data-dice-type="100" data-dice-roll="1"></i> d100</li>
                             <li data-dice-type="100" data-dice-roll="2">2</li>
                             <li data-dice-type="100" data-dice-roll="3">3</li>
-                            <li data-dice-type="100" data-dice-roll="4">4</li>
-                            <li data-dice-type="100" data-dice-roll="5" class="sdr-lastcol">5</li>
+                            <li data-dice-type="100" data-dice-roll="1" data-wild="true">1w</li>
+                            <li data-dice-type="100" data-dice-roll="2" class="sdr-lastcol" data-wild="true">2w</li>
                         </ul>
                     </div>
                 </ol>
@@ -76,8 +78,13 @@ class SimpleDiceRoller {
 
         var diceType = event.target.dataset.diceType;
         var diceRoll = event.target.dataset.diceRoll;
-                
+        var wild = event.target.dataset.wild;
+
         var formula = diceRoll + "d" + diceType;
+
+        if(wild === "true"){
+            formula = "{" + formula + "x=, 1d6x=}kh"
+        }
 
         let r = new Roll(formula);
 
